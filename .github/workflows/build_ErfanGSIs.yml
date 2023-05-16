@@ -57,6 +57,11 @@ jobs:
               mkdir final
               zip -r final/GSI.zip ./*
        
-
+       - name: Upload AB GSI to WeTransfer
+         if: env.BUILD_AB == 'true'
+         run: |
+              curl -sL https://git.io/file-transfer | sh
+              ./transfer wet $ROM_AB
+         
          
             
